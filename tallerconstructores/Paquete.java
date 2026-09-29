@@ -16,8 +16,7 @@ public class Paquete {
     double peso;
     boolean asegurado;
 
-    // Constructor con parámetros: se llaman igual que los atributos,
-    // por eso se usa this.atributo para distinguir el atributo del parámetro.
+    
     public Paquete(String codigo, String destino, double peso, boolean asegurado) {
         this.codigo = codigo;
         this.destino = destino;
@@ -25,7 +24,30 @@ public class Paquete {
         this.asegurado = asegurado;
     }
 
-    // Imprime los datos en una sola línea.
+    
+    public Paquete(String codigo, String destino) {
+        this(codigo, destino, 1.0, false);
+    }
+
+   
+    public Paquete(String codigo) {
+        this(codigo, "Por asignar");
+    }
+
+   
+    public void actualizarPeso(double peso) {
+        this.peso = peso;
+    }
+
+    
+    public double calcularCosto() {
+        double costo = peso * 5000;
+        if (asegurado) {
+            costo = costo + 8000;
+        }
+        return costo;
+    }
+
     public void mostrarInformacion() {
         System.out.println(codigo + " -> " + destino + " | " + peso + " kg | asegurado: " + asegurado);
     }
