@@ -29,19 +29,23 @@ public class Paquete {
         this(codigo, destino, 1.0, false);
     }
 
-   
+    
     public Paquete(String codigo) {
         this(codigo, "Por asignar");
     }
 
-   
     public void actualizarPeso(double peso) {
         this.peso = peso;
     }
 
-    
+   
     public double calcularCosto() {
-        double costo = peso * 5000;
+        return calcularCosto(5000);
+    }
+
+   
+    public double calcularCosto(double tarifaPorKilo) {
+        double costo = peso * tarifaPorKilo;
         if (asegurado) {
             costo = costo + 8000;
         }
